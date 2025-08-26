@@ -18,7 +18,7 @@
         <div class="card">
             <div class="shadow rounded-4">
                 <div class="card-header d-flex justify-content-between alingn-items-center text-white"
-                    style="background-color: rgb(129, 155, 194)">
+                    style="background-color: blueviolet">
                     <h5 class="mb-0">Ambientes</h5>
                     <a href="{{ route('ambiente.create') }}" class="btn btn-light btn-sm">
                         <i class="bi bi-plus-circle"></i>
@@ -47,7 +47,7 @@
                                     <td>{{ $a->status }}</td>
                                     <td>
                                         <a href="{{ route('ambiente.list', $a->id) }}" class="btn btn-sm"
-                                            style="background-color: rgb(126, 150, 173)">EDITAR</a>
+                                            style="background-color: rgb(240, 240, 146)">EDITAR</a>
                                     </td>
                                 </tr>
                             @endforeach
