@@ -9,7 +9,7 @@
 
     <div class="col-md-6 mx-auto">
         <div class="card bg-primary-subtle " >
-            <h5 class="card-header fw-bold text-center" $font-family="sans-serif">Ambiente</h5>
+            <h5 class="card-header fw-bold text-center" $font-family="sans-serif"> Cadastro de Ambiente</h5>
             <div class="card-body">
                 <form wire:submit.prevent="store">
                     <div class="mb-3">
