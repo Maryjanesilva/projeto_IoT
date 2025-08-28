@@ -1,6 +1,5 @@
 <div>
     <div class="container mt-5">
-        {{-- ---------------------------------------------------------------------------------- --}}
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
@@ -18,14 +17,13 @@
         <div class="card">
             <div class="shadow rounded-4">
                 <div class="card-header d-flex justify-content-between alingn-items-center text-white"
-                    style="background-color: blueviolet">
+                    style="background-color: rgb(43, 156, 226)">
                     <h5 class="mb-0">Ambientes</h5>
                     <a href="{{ route('ambiente.create') }}" class="btn btn-light btn-sm">
                         <i class="bi bi-plus-circle"></i>
                         Novo Cadastro
                     </a>
                 </div>
-        {{-- -------------------------------------------------------------------------------------- --}}
                 <div class="card-body p-0">
                     <table class="table table-hover">
                         <thead class="table-light">
@@ -37,22 +35,20 @@
                                 <th>AÇÕES</th>
                             </tr>
                         </thead>
-        {{-- --------------------------------------------------------------------------------------- --}}
                         <tbody>
-                            @foreach ($ambiente as $a)
+                            @foreach ($ambientes as $a)
                                 <tr>                                    
                                     <td>{{ $a->id }}</td>
                                     <td>{{ $a->nome }}</td>
                                     <td>{{ $a->descricao }}</td>
                                     <td>{{ $a->status }}</td>
                                     <td>
-                                        <a href="{{ route('ambiente.list', $a->id) }}" class="btn btn-sm"
-                                            style="background-color: rgb(240, 240, 146)">EDITAR</a>
+                                        <a href="{{ route('ambiente.edit', $a->id) }}" class="btn btn-sm"
+                                            style="background-color: rgb(146, 205, 240)">EDITAR</a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
-        {{-- ---------------------------------------------------------------------------------------- --}}
                     </table>
                 </div>
 

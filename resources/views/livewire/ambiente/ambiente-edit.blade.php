@@ -1,33 +1,36 @@
 <div class="container mt-5">
-    <div class="card px - 3 ">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-
-
-
-
-                <div class="form-group mb-3">
-                    <label for="email" class="form-label">
-                        <i class="bi bi-box"></i> nome</label>
-                    <input type="text" wire:model.defer="email" id="nome" class="form-control">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-light rounded">
+                <div class="card-header text-center fw-bold text-primary mb-1">
+                    <h4>Editar Ambientes</h4>
                 </div>
-
-                <div class="form-group mb-3">
-                    <label for="password" class="form-label">
-                        <i class="bi bi-box"></i> descricao </label>
-                    <input type="password" id="descricao" class="form-control">
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="matricula" class="form-label">
-                        <i class="bi bi-box"></i> Status</label>
-                    <input type="text" id="status" class="form-control">
-                    <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-sm btn-primary"> Cadastrar</button>
-                    </div>
-
+                <div class="card-body">
+                    <form wire:submit.prevent="salvar">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" wire:model.defer="nome"
+                                placeholder="Sala, biblioteca...">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="descricao" wire:model.defer="descricao"
+                                placeholder="digite aqui...">
+                        </div>
+                         <div class=mb-3>
+                                        <label for="status" class="form-label fw-semibold">Status</label>
+                                        <select class="form-select" id="status" name="status"
+                                            wire:model.defer="status">
+                                            <option hidden>Selecione</option>
+                                            <option value="0">Ativo</option>
+                                            <option value="1">Inativo</option>
+                                        </select>
+                                        
+                                    </div>
+                        <input class="btn btn-primary mt-2" type="submit"  value="Salvar">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
+</div
