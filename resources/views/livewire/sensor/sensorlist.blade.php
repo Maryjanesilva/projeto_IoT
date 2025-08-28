@@ -1,12 +1,14 @@
 <div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div class="col-8">
-            <h2 class="fw-bold text-danger mb-1">Sensores</h2>
-        </div>
-        <a class="btn btn-danger btn-lg" href="{{ route('sensor.create') }}">
-            Novo Sensor
-        </a>
-    </div>
+     <div class="card">
+            <div class="shadow rounded-4">
+                <div class="card-header d-flex justify-content-between alingn-items-center text-white"
+                    style="background-color: rgb(43, 156, 226)">
+                    <h5 class="mb-0">Sensores</h5>
+                    <a href="{{ route('sensor.create') }}" class="btn btn-light btn-sm">
+                        <i class="bi bi-plus-circle"></i>
+                        Novo Cadastro
+                    </a>
+                </div>
     <div class="card-body p-0">
         <table class="table table-hover">
             <thead class="table-light">
@@ -20,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- ele vai colocar os dados do funcionarios e coloca na variavel f, ele vai 'popular  nossa tabela' --}}
+              
                 @foreach ($sensor as $s)
                     <tr>
                         <td>{{ $s->ambiente->id }}</td>
@@ -30,7 +32,7 @@
                         <td>{{ $s->status }}</td>
                         <td>
                             <a href="{{ route('sensor.edit', $s->id) }}"
-                                class="btn btn-warning me-1" data-bs-toggle="tooltip" title="Editar">Editar
+                                class="btn btn-info me-1" data-bs-toggle="tooltip" title="Editar">Editar
                             </a>
                         </td>
                     </tr>

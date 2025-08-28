@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Sensor;
 
+use App\Models\Ambiente;
 use App\Models\Sensor;
 use Livewire\Component;
 
@@ -42,6 +43,7 @@ public $ambiente_id, $codigo, $tipo, $descricao, $status;
     
     public function render()
     {
-        return view('livewire.sensor.sensor-create');
+        $ambiente = Ambiente::all();
+        return view('livewire.sensor.sensor-create', compact('ambiente'));
     }
 }
