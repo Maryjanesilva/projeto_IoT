@@ -9,10 +9,12 @@ use Livewire\WithPagination;
 class RegistrosIndex extends Component
 {
 
-    public $search = '';
+     public $sensor_id, $valor, $unidade, $data_hora;
+
+     public $search = '';
     public $perPage = 10;
 
-    public $queryString = [
+    protected $queryString = [
         'search' => ['except' => ''],
         'perPage' => ['except' => 10],
     ];
@@ -20,12 +22,20 @@ class RegistrosIndex extends Component
 
     public function render()
     {
-         $registros = Registro::all();
-        $registros = Registro::where('sensor_id', 'like', "%{$this->search}%")
-        ->orwhere('unidade', 'like', "%{$this->search}%" )
-        ->orwhere('data_hora', 'like', "%{$this->search}%")
-        ->orwhere('valor', 'like', "%{$this->search}%")
-        ->paginate($this->perPage);
-        return view('livewire.registros.registros-index');
+         $registros = Registro::orderBy('id', 'desc')->get();
+        $registros = Registro::where('id', 'like', "%{$this->search}%")
+        ->paginate(15);
+        return view('livewire.registros.registros-index', compact('registros'));
     }
+
+    public function delete($id)
+    {
+        $registro = Registro::find($id);
+        if ($registro != null) {
+            $registro->delete();
+        }
+
+        session()->flash('success', 'registro deletado com sucesso.');
+    }
+
 }
