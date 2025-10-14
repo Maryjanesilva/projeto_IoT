@@ -21,8 +21,11 @@ Route::get('/sensor/edit/{id}',Sensoredit::class)->name('sensor.edit');
 
 use App\Livewire\Dashboard;
 use App\Livewire\Registros\RegistrosIndex;
+use App\Livewire\Sensor\SensorStatus;
 use App\Models\Registro;
 
 Route::get('/',Dashboard::class);
 Route::get('registro/index', RegistrosIndex::class);
+
+Route::get('/sensores/status', SensorStatus::class)->name('sensores.status');
 
