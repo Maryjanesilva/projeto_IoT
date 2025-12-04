@@ -5,10 +5,12 @@ use App\Http\Controllers\RegistroController;
 use App\Livewire\Ambiente\AmbienteCreate;
 use App\Livewire\Ambiente\AmbienteEdit;
 use App\Livewire\Ambiente\AmbienteList;
+use App\Livewire\Auth\Login;
 use App\Livewire\Sensor\SensorCreate;
 use App\Livewire\Sensor\Sensoredit;
 use App\Livewire\Sensor\Sensorlist;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/ambiente/create',AmbienteCreate::class)->name('ambiente.create');
 Route::get('/ambiente/list',AmbienteList::class)->name('ambiente.list');
@@ -24,8 +26,11 @@ use App\Livewire\Registros\RegistrosIndex;
 use App\Livewire\Sensor\SensorStatus;
 use App\Models\Registro;
 
-Route::get('/',Dashboard::class);
+Route::get('/',Dashboard::class)->name('dashboard');
 Route::get('registro/index', RegistrosIndex::class);
 
 Route::get('/sensores/status', SensorStatus::class)->name('sensores.status');
+
+ Route::get('login',Login::class)->name('login');
+
 

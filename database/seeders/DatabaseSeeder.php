@@ -6,6 +6,7 @@ use App\Models\Ambiente;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,11 @@ class DatabaseSeeder extends Seeder
       AmbienteSeeder::class,
       SensorSeeder::class,
       RegistroSeeder::class
+        ]);
+        User::factory()->create([
+            'name' => 'Test User1',
+            'email' => 'test@example1.com',
+            'password' => Hash::make('123456')
         ]);
     }
 }
